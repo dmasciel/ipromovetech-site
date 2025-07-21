@@ -50,11 +50,6 @@ export default function CasesPage() {
               </ul>
             </div>
             <div className='flex items-center justify-center rounded-lg overflow-hidden'>
-              {/*<img
-                src='/banners/desenvolvimento02.jpg'
-                alt='Dashboard de gestão em um tablet'
-                className='rounded-lg'
-              />*/}
               <Image
                 src='/banners/desenvolvimento02.jpg'
                 alt='Dashboard de gestão em um tablet'
