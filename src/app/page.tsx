@@ -5,6 +5,7 @@ import { HeroCarousel } from '@/components/shared/HeroCarousel';
 import { LogoCarousel } from '@/components/shared/LogoCarousel';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { navLinks } from '@/config/site';
 import {
   CheckCircle,
   Cpu,
@@ -12,6 +13,7 @@ import {
   PieChart,
   Smartphone,
 } from 'lucide-react';
+import Image from 'next/image';
 
 // Dados dos slides para o HeroCarousel
 const serviceSlides = [
@@ -180,10 +182,12 @@ export default function HomePage() {
               </ul>
             </div>
             <div className='hidden md:block rounded-lg overflow-hidden shadow-2xl'>
-              <img
-                //src='https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop'
+              <Image
                 src='/recomendacao01.jpg'
                 alt='Equipe de desenvolvedores em uma reunião estratégica'
+                width={800} // Defina a largura real da imagem
+                height={600} // Defina a altura real da imagem
+                className='rounded-lg shadow-2xl' // Mantenha suas classes
               />
             </div>
           </div>
@@ -216,25 +220,16 @@ export default function HomePage() {
             Ipromove<span className='text-primary'>tech</span>
           </a>
 
-          {/*}
-          <a href='/' className='inline-block mb-4'>
-            <img
-              src='/logo ipromove tech - preto.png'
-              alt='Logo Ipromove Tech'
-              className='h-10 mx-auto'
-            />
-          </a> */}
-
           <div className='flex justify-center gap-4 mb-4'>
-            <a href='/cases' className='hover:text-primary'>
-              Cases
-            </a>
-            <a href='/mautic' className='hover:text-primary'>
-              Mautic
-            </a>
-            <a href='/chatwoot' className='hover:text-primary'>
-              Chatwoot
-            </a>
+            {navLinks.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className='hover:text-primary'
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
           <p>
             © {new Date().getFullYear()} Ipromovetech. Todos os direitos

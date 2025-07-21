@@ -10,6 +10,7 @@ import {
   Smartphone,
   Zap,
 } from 'lucide-react';
+import Image from 'next/image';
 
 // Novos dados para a seção de prova social
 const chatwootStats = [
@@ -165,10 +166,18 @@ export default function ChatwootPage() {
         <section className='bg-secondary py-16 md:py-24'>
           <div className='container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
             <div className='hidden md:block'>
-              <img
-                src='https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop'
+              {/*<img
+                src='/banners/automacao01.jpg'
                 alt='Equipe de atendimento ao cliente utilizando a plataforma Chatwoot'
                 className='rounded-lg shadow-xl'
+              />*/}
+
+              <Image
+                src='/banners/automacao01.jpg'
+                alt='Equipe de atendimento ao cliente utilizando a plataforma Chatwoot'
+                width={600} // Defina a largura real da imagem
+                height={200} // Defina a altura real da imagem
+                className='rounded-lg shadow-2xl'
               />
             </div>
             <div>

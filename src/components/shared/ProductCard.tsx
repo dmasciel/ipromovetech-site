@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Image from 'next/image';
 
 // A estrutura de dados que o card espera receber
 type Product = {
@@ -31,12 +32,15 @@ export function ProductCard({
   return (
     <Card className='overflow-hidden flex flex-col group border bg-card hover:border-primary/50 transition-all'>
       <CardHeader className='p-0'>
-        <div className='aspect-square w-full flex items-center justify-center overflow-hidden p-4'>
+        <div className='relative aspect-square w-full flex items-center justify-center overflow-hidden p-4'>
           {produto.imagemUrl && (
-            <img
+            <Image
               src={produto.imagemUrl}
               alt={produto.nome}
-              className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-300'
+              fill // Diga à imagem para preencher o container
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' // Opcional, mas bom para performance
+              // Coloque todas as classes de estilo aqui
+              className='object-contain group-hover:scale-105 transition-transform duration-300'
             />
           )}
         </div>

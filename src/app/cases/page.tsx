@@ -1,6 +1,7 @@
 import { Header } from '@/components/shared/Header';
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 
 const beneficiosProvedor = [
   'Gestão unificada de serviços (internet, TV, telefonia, streaming)',
@@ -49,9 +50,16 @@ export default function CasesPage() {
               </ul>
             </div>
             <div className='flex items-center justify-center rounded-lg overflow-hidden'>
-              <img
+              {/*<img
                 src='/banners/desenvolvimento02.jpg'
                 alt='Dashboard de gestão em um tablet'
+                className='rounded-lg'
+              />*/}
+              <Image
+                src='/banners/desenvolvimento02.jpg'
+                alt='Dashboard de gestão em um tablet'
+                width={800} // Defina a largura real da imagem
+                height={600} // Defina a altura real da imagem
                 className='rounded-lg'
               />
             </div>

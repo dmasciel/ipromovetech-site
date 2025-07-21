@@ -13,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Image from 'next/image';
 
 // Definindo a estrutura de um slide
 interface Slide {
@@ -43,10 +44,18 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
           <CarouselItem key={index}>
             <div className='relative h-[60vh] md:h-[70vh] w-full'>
               <div className='absolute inset-0 bg-black/60 z-10' />
-              <img
+              {/*<img
                 src={slide.src}
                 alt={slide.title}
                 className='w-full h-full object-cover'
+              />*/}
+              <Image
+                src={slide.src}
+                alt={slide.title}
+                fill // Usa 'fill' para preencher o container pai
+                className='object-cover'
+                priority={index === 0} // Carrega a primeira imagem do carrossel com prioridade
+                sizes='(max-width: 768px) 100vw, 80vw' // Ajuda o Next.js a escolher o tamanho certo da imagem
               />
               <div className='absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4'>
                 <h1 className='font-title text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg'>

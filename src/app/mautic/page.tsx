@@ -8,6 +8,7 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
+import Image from 'next/image';
 
 // Dados para a seção de benefícios com o conteúdo novo
 const mauticBenefits = [
@@ -151,10 +152,12 @@ export default function MauticPage() {
           <div className='container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
             <div className='hidden md:block'>
               {/* CAMINHO DA IMAGEM ATUALIZADO AQUI */}
-              <img
+              <Image
                 src='/mautic01.jpg'
                 alt='Especialistas em Mautic discutindo uma estratégia de marketing'
-                className='rounded-lg shadow-xl'
+                width={400} // Defina a largura real da imagem
+                height={200} // Defina a altura real da imagem
+                className='rounded-lg shadow-2xl' // Mantenha suas classes
               />
             </div>
             <div>
