@@ -1,3 +1,5 @@
+// src/components/shared/HeroCarousel.tsx
+
 'use client';
 
 import Autoplay from 'embla-carousel-autoplay';
@@ -12,11 +14,19 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-interface HeroCarouselProps {
-  images: string[];
+// Definindo a estrutura de um slide
+interface Slide {
+  src: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
 }
 
-export function HeroCarousel({ images }: HeroCarouselProps) {
+interface HeroCarouselProps {
+  slides: Slide[];
+}
+
+export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true }),
   );
@@ -29,25 +39,24 @@ export function HeroCarousel({ images }: HeroCarouselProps) {
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {images.map((src, index) => (
+        {slides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className='relative h-[60vh] md:h-[80vh] w-full'>
+            <div className='relative h-[60vh] md:h-[70vh] w-full'>
               <div className='absolute inset-0 bg-black/60 z-10' />
               <img
-                src={src}
-                alt={`Banner principal ${index + 1}`}
+                src={slide.src}
+                alt={slide.title}
                 className='w-full h-full object-cover'
               />
               <div className='absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4'>
-                <h1 className='font-title text-4xl md:text-7xl font-extrabold tracking-tight drop-shadow-lg'>
-                  Estilo que Veste a Alma
+                <h1 className='font-title text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg'>
+                  {slide.title}
                 </h1>
                 <p className='max-w-2xl mx-auto mt-4 text-lg md:text-xl text-neutral-200 drop-shadow-md'>
-                  Peças que expressam sua fé com design moderno e propósito
-                  eterno.
+                  {slide.subtitle}
                 </p>
                 <Button size='lg' className='mt-8 font-bold text-lg px-8 py-6'>
-                  Explorar Coleção
+                  {slide.buttonText}
                 </Button>
               </div>
             </div>

@@ -1,3 +1,5 @@
+// src/components/shared/TestimonialCarousel.tsx
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -8,46 +10,28 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-// Dados dos depoimentos com a foto do Carlos Souza alterada
-const depoimentos = [
-  {
-    nome: 'Ana Silva',
-    avatar: 'AS',
-    imageUrl: 'https://i.pravatar.cc/150?img=1',
-    texto:
-      'Amei minha camiseta! A qualidade do tecido é incrível e a estampa é ainda mais linda pessoalmente. Virou minha preferida!',
-  },
-  {
-    nome: 'Carlos Souza',
-    avatar: 'CS',
-    imageUrl: 'https://i.pravatar.cc/150?img=11',
-    texto:
-      'Comprarei novamente, com certeza. Entrega super rápida e o moletom é muito confortável. A mensagem é o que mais me tocou.',
-  }, // FOTO ALTERADA AQUI
-  {
-    nome: 'Mariana Costa',
-    avatar: 'MC',
-    imageUrl: 'https://i.pravatar.cc/150?img=5',
-    texto:
-      'Finalmente encontrei uma marca que une estilo e fé de um jeito moderno. Já estou de olho nos próximos lançamentos!',
-  },
-  {
-    nome: 'Lucas Pereira',
-    avatar: 'LP',
-    imageUrl: 'https://i.pravatar.cc/150?img=8',
-    texto:
-      'Qualidade de primeira. Dá pra ver que é feito com carinho. Recomendo pra todo mundo que quer se vestir bem e com propósito.',
-  },
-];
+// Definindo a estrutura de um depoimento
+interface Testimonial {
+  nome: string;
+  avatar: string;
+  imageUrl: string;
+  texto: string;
+}
 
-export function TestimonialCarousel() {
+interface TestimonialCarouselProps {
+  testimonials: Testimonial[];
+}
+
+export function TestimonialCarousel({
+  testimonials,
+}: TestimonialCarouselProps) {
   return (
     <Carousel
       opts={{ align: 'start', loop: true }}
       className='w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto'
     >
       <CarouselContent>
-        {depoimentos.map((depoimento, index) => (
+        {testimonials.map((depoimento, index) => (
           <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3'>
             <div className='p-1'>
               <Card>

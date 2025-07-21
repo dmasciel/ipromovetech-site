@@ -85,7 +85,7 @@ export default function ChatwootPage() {
               negócio.
             </p>
             <Button size='lg' className='mt-8 font-bold'>
-              Agendar uma Reunião
+              Otimizar meu Atendimento
               <ArrowRight className='ml-2 h-5 w-5' />
             </Button>
           </div>

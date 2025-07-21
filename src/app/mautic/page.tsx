@@ -68,7 +68,7 @@ export default function MauticPage() {
               controle total e um ROI superior.
             </p>
             <Button size='lg' className='mt-8 font-bold'>
-              Agendar uma Reunião
+              Automatizar meu Marketing
               <ArrowRight className='ml-2 h-5 w-5' />
             </Button>
           </div>
@@ -152,7 +152,7 @@ export default function MauticPage() {
             <div className='hidden md:block'>
               {/* CAMINHO DA IMAGEM ATUALIZADO AQUI */}
               <img
-                src='/especialistas-mautic.jpg'
+                src='/mautic01.jpg'
                 alt='Especialistas em Mautic discutindo uma estratégia de marketing'
                 className='rounded-lg shadow-xl'
               />
@@ -193,7 +193,7 @@ export default function MauticPage() {
               autonomia, inteligência e performance.
             </p>
             <Button size='lg' className='font-bold text-lg px-8 py-6'>
-              Agendar Reunião
+              Agendar uma Reunião
             </Button>
           </div>
         </section>

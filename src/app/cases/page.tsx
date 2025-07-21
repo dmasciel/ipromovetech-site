@@ -50,7 +50,7 @@ export default function CasesPage() {
             </div>
             <div className='flex items-center justify-center rounded-lg overflow-hidden'>
               <img
-                src='https://images.unsplash.com/photo-1573496546038-1640c3600bd9?q=80&w=2069&auto=format&fit=crop'
+                src='/banners/desenvolvimento02.jpg'
                 alt='Dashboard de gestão em um tablet'
                 className='rounded-lg'
               />

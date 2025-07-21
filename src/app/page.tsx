@@ -1,4 +1,8 @@
+// src/app/page.tsx
+import { FeaturedSolutions } from '@/components/home/FeaturedSolutions';
 import { Header } from '@/components/shared/Header';
+import { HeroCarousel } from '@/components/shared/HeroCarousel';
+import { LogoCarousel } from '@/components/shared/LogoCarousel';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -9,26 +13,55 @@ import {
   Smartphone,
 } from 'lucide-react';
 
-const solucoes = [
+// Dados dos slides para o HeroCarousel
+const serviceSlides = [
   {
-    icon: <Cpu className='h-8 w-8 text-primary' />,
-    title: 'Desenvolvimento Sob Medida',
-    description:
-      'Sistemas, plataformas e integrações que resolvem desafios únicos e destravam novos níveis de operação.',
-    href: '/desenvolvimento',
+    //src: 'https://images.unsplash.com/photo-1556742502-ec7c0e2426e2?q=80&w=2070&auto=format&fit=crop',
+    src: '/banners/automacao02.jpg',
+    title: 'Automação de Marketing com Mautic',
+    subtitle:
+      'Implementamos e otimizamos o Mautic para empresas com grandes bases de dados, garantindo soberania de dados e campanhas de alta performance.',
+    buttonText: 'Automatizar meu Marketing',
   },
   {
+    //src: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop',
+    src: '/banners/chatwoot01.jpg',
+    title: 'Atendimento Omnichannel com Chatwoot',
+    subtitle:
+      'Centralize todos os seus canais de atendimento em uma única plataforma open-source, integrada com IA e seus sistemas legados.',
+    buttonText: 'Otimizar meu Atendimento',
+  },
+  {
+    //src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
+    src: '/banners/desenvolvimento02.jpg',
+    title: 'Desenvolvimento de Software Sob Medida',
+    subtitle:
+      'Criamos sistemas e aplicativos robustos que resolvem desafios complexos e escalam com o crescimento do seu negócio.',
+    buttonText: 'Falar com um Especialista',
+  },
+];
+
+// Dados para a seção "Nossas Soluções"
+const solucoes = [
+  {
     icon: <Smartphone className='h-8 w-8 text-primary' />,
-    title: 'Aplicativos Personalizados',
+    title: 'Super APP para Provedores de Internet',
     description:
-      'Apps completos para transformar a jornada do cliente, integrar serviços e gerar engajamento direto.',
-    href: '/desenvolvimento',
+      'Central do Assinante unificada (internet, TV, telefonia, SVAs, assinatura digital)',
+    href: '/cases',
+  },
+  {
+    icon: <Cpu className='h-8 w-8 text-primary' />,
+    title: 'Sistemas Web Sob Medida',
+    description:
+      'Plataformas e integrações que resolvem desafios únicos e destravam novos níveis de operação.',
+    href: '/cases',
   },
   {
     icon: <PieChart className='h-8 w-8 text-primary' />,
-    title: 'Automação Inteligente (Mautic)',
+    title: 'Automação Estratégica (Mautic)',
     description:
-      'Controle total da base de leads, campanhas complexas e conversões escaláveis com tecnologia open source.',
+      'Escalabilidade, controle de leads e campanhas segmentadas sem custos de licenças abusivas.',
     href: '/mautic',
   },
   {
@@ -53,20 +86,34 @@ export default function HomePage() {
     <div className='flex flex-col min-h-screen bg-background text-foreground'>
       <Header />
       <main className='flex-grow'>
-        {/* HERO SECTION */}
-        <section className='relative bg-secondary py-24 md:py-40 text-center'>
-          <div className='container mx-auto px-4 z-10'>
+        {/* HERO SECTION COMBINADA COM O CARROSSEL */}
+        <section className='relative bg-secondary pt-24 md:pt-40 pb-16 md:pb-24'>
+          {/* Parte 1: Texto Introdutório */}
+          <div className='container mx-auto px-4 z-10 text-center'>
             <h1 className='font-title text-4xl md:text-7xl font-extrabold tracking-tight'>
               A Engenharia de Software que Escala Seus Resultados
             </h1>
             <p className='max-w-3xl mx-auto mt-4 text-lg md:text-xl text-muted-foreground'>
               Na Ipromove Tech, criamos sistemas, aplicativos e plataformas sob
               medida para organizações ambiciosas, capazes de crescer em escala
-              e complexidade — como já comprovamos em nossas próprias operações.
+              e complexidade.
             </p>
-            <Button size='lg' className='mt-8 font-bold text-lg px-8 py-6'>
-              Agendar uma Conversa
-            </Button>
+            {/* O botão foi removido daqui para não ser redundante com os botões do carrossel */}
+          </div>
+
+          {/* Parte 2: Carrossel, agora dentro da mesma seção */}
+          <div className='container mx-auto px-4 mt-12 md:mt-16 rounded-lg overflow-hidden border'>
+            <HeroCarousel slides={serviceSlides} />
+          </div>
+        </section>
+
+        {/* NOVA SEÇÃO DE LOGOS COM FUNDO ESCURO FIXO */}
+        <section className='py-12 bg-zinc-900 border-y border-zinc-800'>
+          <div className='container mx-auto'>
+            <h3 className='text-center text-sm font-bold uppercase tracking-widest text-zinc-400 mb-8'>
+              Empresas que Escalam com a Ipromove Tech
+            </h3>
+            <LogoCarousel />
           </div>
         </section>
 
@@ -79,9 +126,8 @@ export default function HomePage() {
             <p className='max-w-4xl mx-auto text-muted-foreground text-lg'>
               Somos arquitetos de soluções digitais validadas em campo. Na
               Ipromove Tech, toda tecnologia nasce e é testada em nosso
-              ecossistema — como na Ipromove.com.br, nosso laboratório vivo.
-              Assim, entregamos sistemas prontos para performar em cenários
-              reais, maximizando receita e otimizando recursos.
+              ecossistema. Entregamos sistemas prontos para performar em
+              cenários reais, maximizando receita e otimizando recursos.
             </p>
           </div>
         </section>
@@ -112,6 +158,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* SEÇÃO DE CASES E DEPOIMENTOS */}
+        <FeaturedSolutions />
+
         {/* POR QUE A IPROMOVETECH */}
         <section className='py-16 md:py-24'>
           <div className='container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center'>
@@ -132,7 +181,8 @@ export default function HomePage() {
             </div>
             <div className='hidden md:block rounded-lg overflow-hidden shadow-2xl'>
               <img
-                src='https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop'
+                //src='https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop'
+                src='/recomendacao01.jpg'
                 alt='Equipe de desenvolvedores em uma reunião estratégica'
               />
             </div>
@@ -151,7 +201,7 @@ export default function HomePage() {
               solução estratégica para seu negócio.
             </p>
             <Button size='lg' className='font-bold text-lg px-8 py-6'>
-              Agendar uma Conversa com um Especialista
+              Agendar uma Conversa
             </Button>
           </div>
         </section>
@@ -165,9 +215,19 @@ export default function HomePage() {
           >
             Ipromove<span className='text-primary'>tech</span>
           </a>
+
+          {/*}
+          <a href='/' className='inline-block mb-4'>
+            <img
+              src='/logo ipromove tech - preto.png'
+              alt='Logo Ipromove Tech'
+              className='h-10 mx-auto'
+            />
+          </a> */}
+
           <div className='flex justify-center gap-4 mb-4'>
-            <a href='/desenvolvimento' className='hover:text-primary'>
-              Desenvolvimento
+            <a href='/cases' className='hover:text-primary'>
+              Cases
             </a>
             <a href='/mautic' className='hover:text-primary'>
               Mautic
