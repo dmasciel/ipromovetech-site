@@ -2,7 +2,6 @@
 import { FeaturedSolutions } from '@/components/home/FeaturedSolutions';
 import { Header } from '@/components/shared/Header';
 import { HeroCarousel } from '@/components/shared/HeroCarousel';
-import { LogoCarousel } from '@/components/shared/LogoCarousel';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -108,16 +107,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* NOVA SEÇÃO DE LOGOS COM FUNDO ESCURO FIXO */}
-        <section className='py-12 bg-zinc-900 border-y border-zinc-800'>
-          <div className='container mx-auto'>
-            <h3 className='text-center text-sm font-bold uppercase tracking-widest text-zinc-400 mb-8'>
-              Nossos parceiros
-            </h3>
-            <LogoCarousel />
-          </div>
-        </section>
-
         {/* QUEM SOMOS */}
         <section className='py-16 md:py-24'>
           <div className='container mx-auto px-4 text-center'>
@@ -163,7 +152,7 @@ export default function HomePage() {
         <FeaturedSolutions />
 
         {/* POR QUE A IPROMOVETECH */}
-        <section className='py-16 md:py-24'>
+        <section className='py-16 md:py-24 bg-secondary'>
           <div className='container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center'>
             <div>
               <h2 className='font-title text-3xl md:text-4xl font-bold mb-6'>
@@ -193,7 +182,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA FINAL */}
-        <section className='py-20 text-center bg-secondary'>
+        <section className='py-20 text-center'>
           <div className='container mx-auto px-4'>
             <h3 className='font-title text-3xl md:text-4xl font-bold'>
               Pronto para Escalar Seus Resultados?

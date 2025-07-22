@@ -56,7 +56,7 @@ export default function RootLayout({
         >
           {children}
 
-          <footer className='bg-card border-t'>
+          <footer className='bg-card border-t bg-secondary'>
             <div className='container mx-auto py-8 px-4 text-center text-sm text-muted-foreground'>
               {/*<a
                 href='/'

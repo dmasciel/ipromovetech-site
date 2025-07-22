@@ -8,61 +8,76 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { cn } from '@/lib/utils'; // Importar a utilidade cn é uma boa prática
 import Image from 'next/image';
 
-// A estrutura de dados que o card espera receber
+// A estrutura de dados (type Product) e as props (interface ProductCardProps)
+// permanecem exatamente as mesmas.
 type Product = {
   nome: string;
-  preco: string; // Este campo será usado tanto para preço quanto para descrição/tags
+  preco: string;
   imagemUrl: string | null;
 };
 
-// As propriedades que o componente aceita
 interface ProductCardProps {
   produto: Product;
   buttonText?: string;
-  isCaseStudy?: boolean; // Propriedade para diferenciar o estilo
+  isCaseStudy?: boolean;
 }
 
 export function ProductCard({
   produto,
-  buttonText = 'Ver Detalhes', // Valor padrão para o botão
+  buttonText = 'Ver Detalhes',
   isCaseStudy = false,
 }: ProductCardProps) {
   return (
-    <Card className='overflow-hidden flex flex-col group border bg-card hover:border-primary/50 transition-all'>
-      <CardHeader className='p-0'>
-        <div className='relative aspect-square w-full flex items-center justify-center overflow-hidden p-4'>
+    // ✅ 1. Efeito de elevação e transição no Card
+    <Card
+      className={cn(
+        'flex flex-col overflow-hidden bg-card', // Estrutura base
+        'transition-all duration-300 ease-in-out', // Animação suave
+        'hover:shadow-xl hover:-translate-y-2 group', // Efeito de elevação e "group" para o hover da imagem
+      )}
+    >
+      <CardHeader className='p-0 border-b'>
+        {/* ✅ 2. Proporção e estilo da imagem */}
+        <div className='relative aspect-[4/3] w-full overflow-hidden'>
           {produto.imagemUrl && (
             <Image
               src={produto.imagemUrl}
               alt={produto.nome}
-              fill // Diga à imagem para preencher o container
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' // Opcional, mas bom para performance
-              // Coloque todas as classes de estilo aqui
-              className='object-contain group-hover:scale-105 transition-transform duration-300'
+              fill
+              sizes='(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw'
+              className='object-cover transition-transform duration-300 group-hover:scale-105'
             />
           )}
         </div>
       </CardHeader>
-      <CardContent className='p-4 flex-grow'>
-        <CardTitle className='text-base font-semibold leading-tight'>
+
+      {/* ✅ 3. Mais espaçamento e tipografia */}
+      <CardContent className='p-6 flex-grow'>
+        <CardTitle className='text-lg font-bold leading-tight font-title'>
           {produto.nome}
         </CardTitle>
       </CardContent>
-      <CardFooter className='p-4 flex flex-col items-start pt-0'>
-        {/* Renderiza condicionalmente o texto. Se for um Case Study, usa um estilo de descrição. */}
-        {isCaseStudy ? (
-          <p className='text-sm text-muted-foreground mb-1 min-h-[40px]'>
-            {produto.preco}
-          </p>
-        ) : (
-          // Se não for, mantém o estilo de preço (caso você use o card para outra coisa no futuro)
-          <p className='text-xl font-bold text-primary'>{produto.preco}</p>
-        )}
 
-        {/* O botão agora usa o texto passado pela prop `buttonText` */}
-        <Button className='w-full mt-4'>{buttonText}</Button>
+      <CardFooter className='p-6 pt-0 mt-auto'>
+        <div className='w-full'>
+          {isCaseStudy ? (
+            <p className='text-sm text-muted-foreground mb-4 min-h-[40px]'>
+              {produto.preco}
+            </p>
+          ) : (
+            <p className='text-xl font-bold text-primary mb-4'>
+              {produto.preco}
+            </p>
+          )}
+
+          {/* ✅ 4. Botão com estilo mais sutil */}
+          <Button variant='secondary' className='w-full font-semibold'>
+            {buttonText}
+          </Button>
+        </div>
       </CardFooter>
     </Card>
   );

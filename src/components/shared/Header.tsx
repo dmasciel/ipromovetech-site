@@ -16,7 +16,7 @@ export function Header() {
   };
 
   return (
-    <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+    <header className='sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60'>
       {/* Container Principal */}
       <div className='container mx-auto h-20 flex items-center justify-between px-4'>
         {/* Logo */}
@@ -65,7 +65,7 @@ export function Header() {
 
       {/* Painel do Menu Mobile (renderizado condicionalmente) */}
       {isMobileMenuOpen && (
-        <div className='md:hidden bg-background border-t'>
+        <div className='md:hidden bg-card border-t'>
           <nav className='flex flex-col items-center gap-4 p-4'>
             {navLinks.map(link => (
               <a
