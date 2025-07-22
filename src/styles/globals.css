@@ -14,11 +14,11 @@
     /* Cards permanecem brancos para contraste */
     --card-foreground: 20 14% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14% 4%;
+    --popover-foreground: 20 14% 8%;
     --primary: 44 98% 59%;
     /* Seu dourado/amarelo */
     --primary-foreground: 0 0% 10%;
-    --secondary: 60 5% 80%;
+    --secondary: 60 5% 90%;
     /* Cinza claro para seções secundárias */
     --secondary-foreground: 24 10% 10%;
     --muted: 60 5% 96%;
