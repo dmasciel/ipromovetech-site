@@ -5,7 +5,6 @@ import { HeroCarousel } from '@/components/shared/HeroCarousel';
 import { LogoCarousel } from '@/components/shared/LogoCarousel';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { navLinks } from '@/config/site';
 import {
   CheckCircle,
   Cpu,
@@ -210,33 +209,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-
-      <footer className='bg-card border-t'>
-        <div className='container mx-auto py-8 px-4 text-center text-sm text-muted-foreground'>
-          <a
-            href='/'
-            className='font-title text-xl font-bold text-foreground mb-4 inline-block'
-          >
-            Ipromove<span className='text-primary'>tech</span>
-          </a>
-
-          <div className='flex justify-center gap-4 mb-4'>
-            {navLinks.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
-                className='hover:text-primary'
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <p>
-            © {new Date().getFullYear()} Ipromovetech. Todos os direitos
-            reservados.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

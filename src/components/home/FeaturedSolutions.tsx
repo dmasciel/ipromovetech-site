@@ -30,9 +30,9 @@ const partnerTestimonials = [
   {
     nome: 'Juliana S., Diretora de CX',
     avatar: 'JS',
-    imageUrl: 'https://i.pravatar.cc/150?img=1',
+    imageUrl: 'https://i.pravatar.cc/150?img=16',
     texto:
-      'Com a Ipromove Tech, nossa plataforma de atendimento ficou 100% integrada e escalável. Hoje atendemos 3x mais clientes sem travar a operação.',
+      'Com a Ipromove Tech, nossa plataforma de atendimento ficou 100% integrada. Hoje atendemos mais clientes 24 horas por dia.',
   },
   {
     nome: 'Carlos M., Gerente de Marketing',
@@ -42,11 +42,11 @@ const partnerTestimonials = [
       'A automação do Mautic implementada pela Ipromove Tech nos deu total controle da base de leads, reduzindo custos e aumentando conversões.',
   },
   {
-    nome: 'Renata T., CEO',
+    nome: 'Renato T., CEO',
     avatar: 'RT',
-    imageUrl: 'https://i.pravatar.cc/150?img=8',
+    imageUrl: 'https://i.pravatar.cc/150?img=12',
     texto:
-      'Construímos um Super APP com a Ipromove Tech para unificar serviços de assinantes. O resultado superou nossas expectativas em engajamento.',
+      'Construímos um APP com a Ipromove Tech para unificar serviços de assinantes. O resultado superou nossas expectativas.',
   },
 ];
 
