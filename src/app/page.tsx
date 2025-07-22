@@ -112,7 +112,7 @@ export default function HomePage() {
         <section className='py-12 bg-zinc-900 border-y border-zinc-800'>
           <div className='container mx-auto'>
             <h3 className='text-center text-sm font-bold uppercase tracking-widest text-zinc-400 mb-8'>
-              Empresas que Escalam com a Ipromove Tech
+              Nossos parceiros
             </h3>
             <LogoCarousel />
           </div>
